@@ -17,3 +17,20 @@
 
 **Próximo passo:**
 - Desenvolver os Controllers e implementar as funcionalidades básicas de cadastro, listagem, edição e exclusão (CRUD).
+
+ **Data:** 28/10/2026
+
+**O que foi feito:**
+- Criação e organização dos templates HTML.
+- Desenvolvimento das páginas de clientes, jogos e desenvolvedoras.
+- Criação dos formulários de cadastro, edição e exclusão.
+
+**Dificuldade encontrada:**
+- Organizar os templates de forma simples.
+
+**Como resolvi:**
+- Organizei os templates com suas funcionalidades principais.
+
+**Próximo passo:**
+- Integrar os templates aos Controllers e testar o funcionamento das páginas.
+  
