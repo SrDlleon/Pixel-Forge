@@ -3,6 +3,6 @@
 {% block conteudo %}
 <h2>{{ jogo.titulo }}</h2>
 <p>Desenvolvedora: {{ jogo.desenvolvedora.nome }}</p>
-<a href="{{ url_for('jogos.clientes', id=jogo.id) }}">Ver clientes</a>
-<a href="{{ url_for('jogos.editar', id=jogo.id) }}">Editar</a>
+<a href="{{ url_for('jogos.listar_clientes_jogo', id=jogo.id) }}">Ver clientes</a>
+<a href="{{ url_for('jogos.editar_jogo', id=jogo.id) }}">Editar</a>
 {% endblock %}

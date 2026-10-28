@@ -2,15 +2,15 @@
 
 {% block conteudo %}
 <h2>Jogos</h2>
-<a href="{{ url_for('jogos.novo') }}">Novo jogo</a>
+<a href="{{ url_for('jogos.novo_jogo') }}">Novo jogo</a>
 
 <ul>
     {% for jogo in jogos %}
         <li>
             {{ jogo.titulo }} - {{ jogo.desenvolvedora.nome }}
-            <a href="{{ url_for('jogos.detalhes', id=jogo.id) }}">Ver</a>
-            <a href="{{ url_for('jogos.editar', id=jogo.id) }}">Editar</a>
-            <form action="{{ url_for('jogos.excluir', id=jogo.id) }}" method="post">
+            <a href="{{ url_for('jogos.detalhar_jogo', id=jogo.id) }}">Ver</a>
+            <a href="{{ url_for('jogos.editar_jogo', id=jogo.id) }}">Editar</a>
+            <form action="{{ url_for('jogos.excluir_jogo', id=jogo.id) }}" method="post">
                 <button type="submit">Excluir</button>
             </form>
         </li>

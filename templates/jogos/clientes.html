@@ -6,7 +6,7 @@
 <ul>
     {% for cliente in jogo.clientes %}
         <li>
-            <a href="{{ url_for('clientes.perfil', id=cliente.id) }}">{{ cliente.nome }}</a>
+            {{ cliente.nome }}
         </li>
     {% endfor %}
 </ul>

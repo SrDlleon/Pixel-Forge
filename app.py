@@ -1,5 +1,4 @@
 from flask import Flask
-from controllers.desenv_controller import desenvolvedora_bp
 
 from controllers.jogos.routes import jogos_bp
 
