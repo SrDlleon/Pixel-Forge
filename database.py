@@ -1,3 +1,4 @@
+from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import create_engine
 from sqlalchemy.orm import DeclarativeBase, sessionmaker
 
@@ -7,3 +8,7 @@ Session = sessionmaker(bind=engine)
 
 class Base(DeclarativeBase):
     pass
+
+db = SQLAlchemy(
+    model_class=Base
+)
