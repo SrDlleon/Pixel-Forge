@@ -1,13 +1,16 @@
 from flask import Flask
 from controllers.desenv_controller import desenvolvedora_bp
 
+from controllers.jogos.routes import jogos_bp
+
 app = Flask(__name__)
 
-@app.route("/login")
-def login:
-    request.form('nome')
-    request.form('idade')
+app.register_blueprint(jogos_bp)
 
+
+@app.route('/')
+def home():
+    return "pagina principal"
 
 if __name__ == "__main__":
     app.run (debug=True)
