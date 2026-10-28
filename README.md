@@ -16,4 +16,9 @@ Representa os usuários que utilizam a plataforma para encontrar e adquirir os j
 ### Desenvolvedoras:
 Representa as desenvolvedoras responsáveis por publicar e gerenciar os jogos disponíveis na Pixel-Forge. Cada desenvolvedora possui uma conta e pode administar seus próprios jogos.
 
+### Relacionamentos entre as entidades
+Desenvolvedora -> Jogo (1): Uma desenvolvedora pode cadastarar vários jogos, mas cada jogo pertence a uma única desenvolvedora.
+
+Cliente <-> Jogo (N): Um cliente pode possuir vários jogos e um mesmo jogo pode possuir vários clientes.
+
 
