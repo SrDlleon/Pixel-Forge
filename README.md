@@ -10,5 +10,10 @@ Pixel-forge é um sistema web de loja de jogos digitais desenvolvido com Flask, 
 
 ## Entidades
 ### Jogo:
+Representa os jogos digitais disponíveis na Pixel-Forge. Cada jogo pertence a uma desenvolvedora e pode ser adquirido por vários clientes. Os jogos são cadastrados e gerenciados pelas desenvolvedoras, euquanto os clientes podem adicioná-los às suas bibliotecas.
 ### Cliente:
-### Desenvolvedor:
+Representa os usuários que utilizam a plataforma para encontrar e adquirir os jogos. Cada cliente pode criar sua conta, visualizar os jogos disponíveis e gerenciar sua biblioteca pessoal.
+### Desenvolvedoras:
+Representa as desenvolvedoras responsáveis por publicar e gerenciar os jogos disponíveis na Pixel-Forge. Cada desenvolvedora possui uma conta e pode administar seus próprios jogos.
+
+
