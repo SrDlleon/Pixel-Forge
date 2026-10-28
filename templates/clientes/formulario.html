@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<h2>{{ titulo }}</h2>
+
+<form action="{{ acao }}" method="post">
+    <p>
+        <label>Nome:
+            <input name="nome" value="{{ cliente.nome if cliente else '' }}" required>
+        </label>
+    </p>
+    <p>
+        <label>Email:
+            <input type="email" name="email" value="{{ cliente.email if cliente else '' }}" required>
+        </label>
+    </p>
+    <p>
+        <label>Senha:
+            <input type="password" name="senha" {% if not cliente %}required{% endif %}>
+        </label>
+    </p>
+
+    {% if cliente %}
+        <p>Deixe a senha vazia para não alterá-la.</p>
+    {% endif %}
+
+    <button type="submit">Salvar</button>
+</form>
+{% endblock %}

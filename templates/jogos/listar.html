@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<h2>Jogos</h2>
+<a href="{{ url_for('jogos.novo') }}">Novo jogo</a>
+
+<ul>
+    {% for jogo in jogos %}
+        <li>
+            {{ jogo.titulo }} - {{ jogo.desenvolvedora.nome }}
+            <a href="{{ url_for('jogos.detalhes', id=jogo.id) }}">Ver</a>
+            <a href="{{ url_for('jogos.editar', id=jogo.id) }}">Editar</a>
+            <form action="{{ url_for('jogos.excluir', id=jogo.id) }}" method="post">
+                <button type="submit">Excluir</button>
+            </form>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

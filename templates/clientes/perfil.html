@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<h2>{{ cliente.nome }}</h2>
+<p>Email: {{ cliente.email }}</p>
+<a href="{{ url_for('clientes.biblioteca', id=cliente.id) }}">Biblioteca</a>
+<a href="{{ url_for('clientes.editar', id=cliente.id) }}">Editar</a>
+{% endblock %}

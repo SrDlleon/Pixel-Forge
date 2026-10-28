@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<h2>{{ titulo }}</h2>
+
+<form action="{{ acao }}" method="post">
+    <p>
+        <label>Título:
+            <input name="titulo" value="{{ jogo.titulo if jogo else '' }}" required>
+        </label>
+    </p>
+    <p>
+        <label>Desenvolvedora:
+            <select name="desenvolvedora_id" required>
+                {% for desenvolvedora in desenvolvedoras %}
+                    <option value="{{ desenvolvedora.id }}" {% if jogo and jogo.desenvolvedora_id == desenvolvedora.id %}selected{% endif %}>
+                        {{ desenvolvedora.nome }}
+                    </option>
+                {% endfor %}
+            </select>
+        </label>
+    </p>
+    <button type="submit">Salvar</button>
+</form>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<h2>Biblioteca de {{ cliente.nome }}</h2>
+
+<h3>Adicionar jogo</h3>
+{% if disponiveis %}
+    <form action="{{ url_for('clientes.adicionar', id=cliente.id) }}" method="post">
+        <select name="jogo_id">
+            {% for jogo in disponiveis %}
+                <option value="{{ jogo.id }}">{{ jogo.titulo }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Adicionar</button>
+    </form>
+{% else %}
+    <p>Nenhum jogo disponível.</p>
+{% endif %}
+
+<h3>Jogos da biblioteca</h3>
+<ul>
+    {% for jogo in cliente.jogos %}
+        <li>
+            {{ jogo.titulo }}
+            <form action="{{ url_for('clientes.remover', id=cliente.id, jogo_id=jogo.id) }}" method="post">
+                <button type="submit">Remover</button>
+            </form>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

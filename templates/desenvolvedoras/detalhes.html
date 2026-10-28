@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<h2>{{ desenvolvedora.nome }}</h2>
+<h3>Jogos publicados</h3>
+
+<ul>
+    {% for jogo in desenvolvedora.jogos %}
+        <li>
+            <a href="{{ url_for('jogos.detalhes', id=jogo.id) }}">{{ jogo.titulo }}</a>
+        </li>
+    {% endfor %}
+</ul>
+
+<a href="{{ url_for('desenvolvedoras.editar', id=desenvolvedora.id) }}">Editar</a>
+{% endblock %}

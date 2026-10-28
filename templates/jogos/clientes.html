@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<h2>Clientes com {{ jogo.titulo }}</h2>
+
+<ul>
+    {% for cliente in jogo.clientes %}
+        <li>
+            <a href="{{ url_for('clientes.perfil', id=cliente.id) }}">{{ cliente.nome }}</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

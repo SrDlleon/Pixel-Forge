@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block titulo %}{{ titulo }} | Pixel Forge{% endblock %}
+
+{% block conteudo %}
+<h1>{{ titulo }}</h1>
+
+<form class="cartao formulario" method="post" action="{{ acao }}">
+    <label for="nome">Nome da desenvolvedora</label>
+    <input id="nome" name="nome" type="text" maxlength="255" value="{{ desenvolvedora.nome if desenvolvedora else '' }}" required>
+
+    <div class="acoes">
+        <button class="botao" type="submit">Salvar</button>
+        <a href="{{ url_for('desenvolvedoras.listar') }}">Cancelar</a>
+    </div>
+</form>
+{% endblock %}

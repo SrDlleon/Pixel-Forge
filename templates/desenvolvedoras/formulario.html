@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<h2>{{ titulo }}</h2>
+
+<form action="{{ acao }}" method="post">
+    <p>
+        <label>Nome:
+            <input name="nome" value="{{ desenvolvedora.nome if desenvolvedora else '' }}" required>
+        </label>
+    </p>
+    <button type="submit">Salvar</button>
+</form>
+{% endblock %}
