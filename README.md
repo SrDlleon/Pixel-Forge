@@ -2,9 +2,9 @@
 ### Integrantes: Aislanny Fernandes, Davi Dlleon e Larícia Braga.
 
 ## Responsabilidade principal de cada integrante
-Aislanny Fernandes: 
-Davi Dlleon:
-Larícia Braga:
+## Aislanny Fernandes: CRUD de usuários cliente.
+## Davi Dlleon: Banco de dados (models) e CRUD de Jogos.
+## Larícia Braga: Templates e CRUD de Desenvolvedoras.
 
 Pixel-forge é um sistema web de loja de jogos digitais desenvolvido com Flask, SQLAlchemy e SQLite. A loja disponibiliza jogos de diversas desenvolvedoras que produzem jogos de diferentes categorias: RPG, aventura, indie, roguelike, cozy e entre outros. A plataforma permite que clientes acessem a lista de jogos disponíveis e adquira para consumo.
 
@@ -20,5 +20,66 @@ Representa as desenvolvedoras responsáveis por publicar e gerenciar os jogos di
 Desenvolvedora -> Jogo (1): Uma desenvolvedora pode cadastarar vários jogos, mas cada jogo pertence a uma única desenvolvedora.
 
 Cliente <-> Jogo (N): Um cliente pode possuir vários jogos e um mesmo jogo pode possuir vários clientes.
+
+## Instruções para executar o projeto
+
+Para executar o Pixel-Forge, é necessário ter o Python instalado.
+
+Primeiro, clone o repositório:
+
+```bash
+git clone https://github.com/SrDlleon/Pixel-Forge.git
+```
+
+Entre na pasta do projeto:
+
+```bash
+cd Pixel-Forge
+```
+
+Crie um ambiente virtual:
+
+```bash
+python -m venv venv
+```
+
+Ative o ambiente virtual:
+
+**Windows (PowerShell):**
+```powershell
+.\venv\Scripts\Activate.ps1
+```
+
+**Linux:**
+```bash
+source venv/bin/activate
+```
+
+Instale as dependências do projeto:
+
+```bash
+pip install -r requirements.txt
+```
+
+Para popular o banco com dados iniciais, execute:
+
+```bash
+python seed.py
+```
+
+Com o ambiente virtual ativado e as dependências instaladas, execute:
+
+```bash
+flask run --debug
+```
+
+
+## Principais dificuldades encontradas
+
+Durante o desenvolvimento do Pixel-Forge, algumas das principais dificuldades foram:
+
+- **SQLAlchemy:** compreender o funcionamento das sessões, consultas e operações de cadastro, edição e exclusão de registros.
+- **Relacionamentos entre entidades:** implementar os relacionamentos 1:N entre Desenvolvedora e Jogo e N:N entre Cliente e Jogo.
+
 
 
