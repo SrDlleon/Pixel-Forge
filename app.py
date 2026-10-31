@@ -2,11 +2,13 @@ from flask import Flask, render_template
 
 from controllers.jogos.routes import jogos_bp
 from controllers.desenvolvedoras.routes import desenvolvedora_bp
+from controllers.clientes.routes import clientes_bp
 
 app = Flask(__name__)
 
 app.register_blueprint(jogos_bp)
 app.register_blueprint(desenvolvedora_bp)
+app.register_blueprint(clientes_bp)
 
 
 @app.route('/')
