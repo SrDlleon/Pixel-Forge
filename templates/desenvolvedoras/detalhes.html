@@ -7,7 +7,7 @@
 <ul>
     {% for jogo in desenvolvedora.jogos %}
         <li>
-            <a href="{{ url_for('jogos.detalhes', id=jogo.id) }}">{{ jogo.titulo }}</a>
+            <a href="{{ url_for('jogos.detalhar_jogo', id=jogo.id) }}">{{ jogo.titulo }}</a>
         </li>
     {% endfor %}
 </ul>

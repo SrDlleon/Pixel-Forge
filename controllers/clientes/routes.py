@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, url_for
+from flask import Blueprint, render_template, request, redirect, url_for, abort
 from sqlalchemy import select
 from database import Session
 from models.models import Cliente, Jogo
@@ -18,13 +18,19 @@ def listar():
 @clientes_bp.route('/novo', methods =['GET', 'POST'])
 def novo():
     if request.method == 'POST':
-        nome = request.form['nome']
-        email = request.form['email']
+        nome = request.form['nome'].strip()
+        email = request.form['email'].strip()
         senha = request.form['senha']
+
+        if not nome or not email or not senha.strip():
+            abort(400)
 
         cliente = Cliente(nome = nome, email = email, senha_hash = generate_password_hash(senha))
 
         with Session() as session:
+            if session.scalars(select(Cliente).where(Cliente.email == email)).first():
+                abort(400)
+
             session.add(cliente)
             session.commit()
 
@@ -64,10 +70,17 @@ def adicionar(id):
         if cliente is None:
             return 'Cliente não encontrado', 404
 
-        jogo_id = request.form ['jogo_id']
+        jogo_id = request.form.get('jogo_id', type=int)
+
+        if jogo_id is None:
+            abort(400)
+
         jogo = session.get(Jogo, jogo_id)
 
-        if jogo:
+        if jogo is None:
+            abort(404)
+
+        if jogo not in cliente.jogos:
             cliente.jogos.append(jogo)
             session.commit()
 
@@ -98,9 +111,20 @@ def editar(id):
             return 'Cliente não encontrado', 404
 
         if request.method == 'POST':
-            cliente.nome = request.form ['nome']
-            cliente.email = request.form ['email']
+            nome = request.form['nome'].strip()
+            email = request.form['email'].strip()
             senha = request.form ['senha']
+
+            if not nome or not email:
+                abort(400)
+
+            existente = session.scalars(select(Cliente).where(Cliente.email == email)).first()
+
+            if existente and existente.id != cliente.id:
+                abort(400)
+
+            cliente.nome = nome
+            cliente.email = email
             if senha:
                 cliente.senha_hash = generate_password_hash(senha)
 
